@@ -17,9 +17,22 @@ ______________
 * gulp.series() и gulp.parallel() для управления порядком задач
 ______________
 * watch(), которая перезапускает задачи при изменении файлов.
-
 ______________
-
+* exports.html = html;
+* exports.styles = styles;
+* exports.scripts = scripts;
+______________
+const build = parallel(html, styles, scripts);
+exports.build = build;
+______________
+exports.default = series(build, serve);
+______________
+browserSync.init({
+        server: {
+            baseDir: './dist' // Указываем, что корень сервера - папка dist
+        },
+        port: 3000
+    });
 
 ```
 Установка нового плагина:
@@ -42,4 +55,10 @@ function имяЗадачи() {
 gulp имяЗадачи   — одна задача
 gulp build       — сборка
 gulp             — разработка (default)
+```
+
+* Внутри CMD
+```
+gulp - если был задан. Запускает то, что было задано в exports.default 
+gulp html - отдельная сборка
 ```
