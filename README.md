@@ -1,6 +1,6 @@
-# stage_7_developer_roadmap ***GULP и WEBPACK***
+# stage_7_developer_roadmap 
 
-# GULP
+# *GULP*
 ______________
 * src() — берем исходные файлы.
 * pipe() — передаем их в плагин для трансформации.
